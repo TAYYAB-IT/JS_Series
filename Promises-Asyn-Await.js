@@ -10,5 +10,5 @@ async function check(x){
     });
     console.log(await promis)
 }
-arr=[18,29,14,15,,9,0,12,34,]
+arr=[18,29,14,15,,9,0,12,34,25,29]
 arr.forEach(check);
