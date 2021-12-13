@@ -2,8 +2,10 @@ function miniMaxSum(arr) {
     // Write your code here
 max=arr.reduce((ret,val)=>
     ret+=val)
-
+  
 min=max-arr[arr.length-1]
+  max-=arr[0]
+
 console.log(min+" "+max)
 }
 
