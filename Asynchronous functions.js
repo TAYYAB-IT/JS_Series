@@ -12,4 +12,4 @@ function time_(){
     console.clear()  //this funtion is used to clear console completely
     console.log(d.getHours() +":",d.getMinutes()+":",d.getSeconds())
 }
-setInterval(time_,100)
+setInterval(time_,1000)

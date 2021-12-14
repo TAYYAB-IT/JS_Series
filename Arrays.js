@@ -39,7 +39,7 @@ If the result is 0 no changes are done with the sort order of the two values. */
 {name:"Guardian",price:450}
 ]
 //Sorting Objects
-book.sort((y,z)=>y.price-z.price) //sort accrding to increasing price
+book.sort((y,z)=>y.price-z.price) //sort accroding to increasing price
 console.log(book[2].price)
 book.sort((y,z)=>{
     x=y.name.toLowerCase()
