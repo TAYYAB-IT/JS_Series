@@ -20,7 +20,7 @@ function check2(x){
            resolve(" is an Adult Age")
          }
     
-         reject("Below then 18")
+         reject("Below than 18")
         })
         promis.then((value)=>{
             console.log(value)
