@@ -1,18 +1,11 @@
  function Air_Port(st,en,co){
    this. start=st
     this. end=en
-    this. cost=co
-}
+    this. cost=co}
+	//Filter the elements Start with ,End with,Rest
 function path_finder(airports,st,en){
-    // func=(airports,st,end)=>{
-
-    // }
-filt_end=airports.filter((value)=>
-   value.end===en
-)
-filt_start=airports.filter((value)=>
-     value.start===st
-)
+filt_end=airports.filter((value)=>value.end===en) 
+filt_start=airports.filter((value)=> value.start===st)
 rest=airports.filter((value)=>
 value.start!=st && value.end!=en
 )
@@ -20,15 +13,18 @@ value.start!=st && value.end!=en
 //console.log(filt_start.length)
 //console.log(filt_end.length)
 //console.log(rest.length)
+//Direct_Path
+{
 chk=filt_start.find((value)=>
 value.start==st &&value.end==en)
-
-paths=[]
-paths_costs=[]
+}
+paths=[] //All possible paths Start -> End
+paths_costs=[]  //All Posssible Paths Costs
 if(chk!=undefined){
  direct_cost=chk.cost
  paths.push([chk])
 }
+//Multi
 for(j in filt_start){
 	for(z in filt_end){
 		if(filt_start[j].start==st && filt_end[z].start==filt_start[j].end && filt_end[z].end==en)
@@ -49,25 +45,27 @@ for(i in filt_start){
 	}
 	}
 }
+//No Path Exist
 if(paths.length==0){
 	return "No Path Exist";
 }
 //console.log(paths[0][1].end)
+//Cost Finder
 for(i of paths){
 	cost =0
 for(j in i ){
-cost+=i[j].cost
+ cost+=i[j].cost
 }
-paths_costs.push(cost)
+ paths_costs.push(cost)
 }
-lowest_cost=Math.min.apply(0,paths_costs);
-cost_index=paths_costs.indexOf(lowest_cost);
+lowest_cost=Math.min.apply(0,paths_costs); //Lowest cost
+cost_index=paths_costs.indexOf(lowest_cost); 
 //console.log(lowest_cost)
 best=[paths[cost_index][0].start]
 for(i of paths[cost_index]){
 	best.push(i.end)
 }
-return best.toString()+"\n"+lowest_cost
+return best.toString()+"\n"+lowest_cost         //Lowest Cost Path & Cost
 }
 
 
