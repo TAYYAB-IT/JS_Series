@@ -3,6 +3,8 @@
 new Date(year, month, day, hours, minutes, seconds, milliseconds)
 new Date(milliseconds)
 new Date(date string
+
+    //Note* month counts from 0. December is month 11:
     */
 d=new Date(2018,10,12)
 console.log(d.toDateString()) //Most readable format Date
