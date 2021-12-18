@@ -4,27 +4,41 @@
     this. cost=co}
 	//Filter the elements Start with ,End with,Rest
 function path_finder(airports,st,en){
+filt_start=filt_end=rest=[];
+paths=[] //All possible paths Start -> End
+paths_costs=[]  //All Posssible Paths Costs
+/*
 filt_end=airports.filter((value)=>value.end===en) 
 filt_start=airports.filter((value)=> value.start===st)
 rest=airports.filter((value)=>
 value.start!=st && value.end!=en
 )
-
+*/
+//
+for(value of airports){
+	if(value.start===st){filt_start.push(value)}
+	else if(value.end===en){filt_end.push(value)}
+	else{rest.push(value)}
+}
+//
 //console.log(filt_start.length)
 //console.log(filt_end.length)
 //console.log(rest.length)
 //Direct_Path
+
+
+/*
 {
 chk=filt_start.find((value)=>
 value.start==st &&value.end==en)
 }
-paths=[] //All possible paths Start -> End
-paths_costs=[]  //All Posssible Paths Costs
 if(chk!=undefined){
  direct_cost=chk.cost
  paths.push([chk])
 }
+*/
 //Multi
+/*
 for(j in filt_start){
 	for(z in filt_end){
 		if(filt_start[j].start==st && filt_end[z].start==filt_start[j].end && filt_end[z].end==en)
@@ -34,22 +48,26 @@ for(j in filt_start){
 	}
 }
 }
+*/
+//Path Finder
 for(i in filt_start){
+	if(filt_start[i].start==st && filt_start[i].end==en){paths.push([filt_start[i]])
+		continue;}
 	for(j in rest){
+		c=false;
 		for(z in filt_end){
-			if(filt_start[i].start==st &&rest[j].start==filt_start[i].end && filt_end[z].start==rest[j].end && filt_end[z].end==en)
-		{
-			paths.push([filt_start[i],rest[j],filt_end[z]])
-
-		}
-	}
-	}
-}
+			if(filt_start[i].start==st && filt_end[z].start==filt_start[i].end && filt_end[z].end==en){
+				paths.push([filt_start[i],filt_end[z]])
+				c=true;
+			}
+		    else if(filt_start[i].start==st &&rest[j].start==filt_start[i].end && filt_end[z].start==rest[j].end && filt_end[z].end==en){
+			paths.push([filt_start[i],rest[j],filt_end[z]])}}
+		if (c) {break;}
+		}}
 //No Path Exist
 if(paths.length==0){
 	return "No Path Exist";
 }
-//console.log(paths[0][1].end)
 //Cost Finder
 for(i of paths){
 	cost =0
@@ -60,7 +78,6 @@ for(j in i ){
 }
 lowest_cost=Math.min.apply(0,paths_costs); //Lowest cost
 cost_index=paths_costs.indexOf(lowest_cost); 
-//console.log(lowest_cost)
 best=[paths[cost_index][0].start]
 for(i of paths[cost_index]){
 	best.push(i.end)
@@ -77,6 +94,6 @@ airports.push(new Air_Port('CBS','NYC',775))
 airports.push( new Air_Port('ISB','CBS',575))
 airports.push(new Air_Port('CBS','GRC',731))
 airports.push(new Air_Port('NYC','GRC',459))
-const st="LHR"
+const st="ISB"
 const en="GRC"
 console .log(path_finder(airports,st,en))
