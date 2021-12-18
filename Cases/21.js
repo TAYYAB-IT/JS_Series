@@ -1,8 +1,8 @@
 function catAndMouse(x, y, z) {
 cat1=z-x
 cat2=z-y
-if(Math.sign(cat1==-1)){cat1=-1*cat1}
-if(Math.sign(cat2==-1)){cat2=-1*cat2}
+if(Math.sign(cat1)==-1){cat1=-1*cat1}
+if(Math.sign(cat2)==-1){cat2=-1*cat2}
 //console.log(cat1,"  ",cat2)
 if(cat1<cat2){return "Cat A"}
 else if(cat1>cat2){return "Cat B"}
