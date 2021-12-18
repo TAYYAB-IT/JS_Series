@@ -23,3 +23,5 @@
 //console.log("34"/17+"2")//4
 //console.log("24"+2/2) //241
 
+//Math.abs(-20)// 20
+//Math.abs(20) //20
