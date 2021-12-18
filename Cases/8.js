@@ -8,6 +8,7 @@ function timeConversion(s) {
    else if(s.includes("AM")&& hr==12){
       hr="00"
    }
+   else if(s.includes("AM")&& hr<10){hr='0'+hr}
    return(hr+res)
 }
 let t="07:05:45PM"
