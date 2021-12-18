@@ -3,7 +3,7 @@ function divisibleSumPairs(n, k, ar) {
      count=[]
     for(i in ar){
         for(j in ar){
-            if(ar[i]<ar[j] && ((ar[i]+ar[j])%k==0)){
+            if(i<j && ((ar[i]+ar[j])%k==0)){
                x++
            // count.push([i,j])
         } }}
