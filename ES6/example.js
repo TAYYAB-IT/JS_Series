@@ -1,2 +1,3 @@
-import {person} from './person.js';
-person('Ali',20);
+import * as per  from './person.js';
+per.person('Ali',20);
+per.greeting('Ali');
